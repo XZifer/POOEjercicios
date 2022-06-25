@@ -10,19 +10,14 @@ namespace POOAplicacion
     {
         public List<Coche> coches { get; set; }
         
-        public void AñadirCoche()
+        public void AñadirCoche(string marca,string modelo,int km,double precio)
         {
-            Console.WriteLine("Escribe la marca:");
             Coche coche = new Coche();
-            coche.marca = Console.ReadLine();
-            Console.WriteLine("Escribe el modelo:");
-            coche.modelo = Console.ReadLine();
-            Console.WriteLine("Escribe el kilometraje:");
-            string KM = Console.ReadLine();
-            coche.km = int.Parse(KM);
-            Console.WriteLine("Escribe el precio:");
-            string PRECIO = Console.ReadLine();
-            coche.precio = int.Parse(PRECIO);
+            coche.id = coches.Count + 1 ;
+            coche.marca = marca;
+            coche.modelo = modelo;
+            coche.km = km;
+            coche.precio = precio;
             coches.Add(coche);
         }
         public void MostrarCoches()
@@ -34,6 +29,13 @@ namespace POOAplicacion
                 Console.WriteLine(coche);
             }             
         }
-        public 
+        public  void VaciarCoches()
+        {
+            coches.Clear();
+        }
+        public void EliminarCoche(Coche c)
+        {
+            coches.Remove(c);
+        }
     }
 }
