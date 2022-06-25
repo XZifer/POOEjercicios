@@ -16,7 +16,7 @@ namespace POOAplicacion
 
         public string ToString()
         {
-            return "Detalles\n"+Marca+"\n"+Modelo+"\n"+km+"kms\n"+"$"+precio;
+            return "Detalles\n"+marca+"\n"+modelo+"\n"+km+"kms\n"+"$"+precio;
         }
     }
 }
