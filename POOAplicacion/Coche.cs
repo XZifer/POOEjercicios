@@ -14,7 +14,7 @@ namespace POOAplicacion
         public int km { get; set; }
         public double precio { get; set; }
 
-        public string ToString()
+        public override string ToString()
         {
             return "Detalles\n"+marca+"\n"+modelo+"\n"+km+"kms\n"+"$"+precio;
         }

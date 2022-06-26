@@ -9,24 +9,26 @@ namespace POOAplicacion
     internal class Concesionario
     {
         public List<Coche> coches { get; set; }
-        
-        public void AñadirCoche(string marca,string modelo,int km,double precio)
+
+        public Concesionario()
         {
-            Coche coche = new Coche();
-            coche.id = coches.Count + 1 ;
-            coche.marca = marca;
-            coche.modelo = modelo;
-            coche.km = km;
-            coche.precio = precio;
-            coches.Add(coche);
+            coches = new List<Coche>();
+            //Coche coche1 = new Coche();
+            //coche1.id = 1;
+            //coche1.marca = "M"
+        }
+        
+        public void AñadirCoche(Coche c)
+        {
+            c.id = coches.Count + 1;
+            coches.Add(c);
+            
         }
         public void MostrarCoches()
         {
-            string coche;
             foreach (Coche c in coches)
             {
-                coche = c.ToString();
-                Console.WriteLine(coche);
+                Console.WriteLine(c.ToString());
             }             
         }
         public  void VaciarCoches()
@@ -35,7 +37,21 @@ namespace POOAplicacion
         }
         public void EliminarCoche(Coche c)
         {
-            coches.Remove(c);
+            for (int i = 0; i < coches.Count; i++)
+            {
+                if (coches[i] == c)
+                {
+                    coches.Remove(coches[i]);
+                    for (int j = 0; j < coches.Count; j++)
+                    {
+                        coches[j].id = j + 1;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No Existe");
+                }
+            }
         }
     }
 }
