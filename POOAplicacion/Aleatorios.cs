@@ -31,12 +31,52 @@ namespace POOAplicacion
             {
                 return null;
             }
-            int[] array = new int[tamaño];
+            int[] numeros = new int[tamaño];
             for (int i = 0; i < tamaño; i++)
             {
-                array[i] = randomEntreNumeros(min,max);   
+                numeros[i] = randomEntreNumeros(min,max);   
             }
-            return array;
+            return numeros;
+        }
+        public int[] randomEntreNumerosSinRepetir(int tamaño,int min, int max)
+        {
+            if (min > max)
+            {
+                int cambiar = min;
+                min = max;
+                max = cambiar;
+            }
+            if (tamaño <= 0 || tamaño < max-min)
+            {
+                return null;
+            }
+            int[] numeros = new int[tamaño];
+            bool repetido;
+            int indicenumeros = 0;
+            int numero;
+
+            while (indicenumeros < tamaño)
+            {
+                repetido = false;
+                numero = randomEntreNumeros(min, max);
+                for (int i = 0; i < indicenumeros; i++)
+                {
+                    if (numeros[i] == numero)
+                    {
+                        repetido = true;
+                    }
+
+                    
+                };
+                if (!repetido)
+                {
+                    numeros[indicenumeros] = numero;
+                    indicenumeros++;
+                }
+            }
+
+            return numeros;
+            
         }
     }
 }
